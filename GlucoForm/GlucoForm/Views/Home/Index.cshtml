@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>GlucoForm survey!</h1>
+    <p class="lead"> Join our team of experts and users today!</p>
+    <p><a class="btn btn-primary btn-lg" href="~/Account/Register">Register &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <h2>Register for the survey</h2>
+            <p>
+                We started with a vision of predicting a heart attack before it happens.
+                Today, with our AI algorithms, we help users from all around the world to monitor their hearts and we are starting a new venture.
+                We want to expand the possibiities of our products to offer much more to users than just monitoring the heart conditions. We want to use the 
+                innovations in medicine and AI and warn users of other threats on their health.
+            </p>
+            <p><a class="btn btn-default"  href="~/Account/Register">Register &raquo;</a></p>
+        }
+        else
+        {
+            <h2>Welcome back, @User.Identity.Name !</h2>
+            <p>
+                You can continue where you left off last time! Continue to
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Doctors", "Index", "Doctors")
+                }
+                else if (User.IsInRole("Doctor"))
+                {
+                    @Html.ActionLink("Patients", "Index", "Patients")
+                }
+                else
+                {
+                    @Html.ActionLink("My reports", "Details", "Patients", new { id = ViewBag.currentUser }, null)
+                }.
+            </p>
+        }
+    </div>
+    <div class="col-md-5">
+        <h2>Medical advice of the day</h2>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">It is a good idea to see a cardiologist after you turn 45 even if you feel healthy. That way you will be able to practice preventative medicine and improve the quality of your life.</p>
+            <footer class="blockquote-footer">Farreras Valentí, P., Rozman, C., Domarus, A. and Lopez, F. (2012) in <cite title="Source Title">Medicina interna. 17th ed.</cite></footer>
+        </blockquote>
+    </div>
+
+</div>
+
+<style>
+    .jumbotron {
+        background-image: url('../Content/Images/jumbo-image.jpeg');
+     
+    }
+</style>

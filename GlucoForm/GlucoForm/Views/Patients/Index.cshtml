@@ -1,0 +1,97 @@
+﻿@model IEnumerable<GlucoForm.Models.Patient>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<h2>Patients</h2>
+
+<p class="text-right">
+    @Html.ActionLink("Create New Patient", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table" id="tablePatients">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.TelephoneNumber)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Weight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Height)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfInclusionInTheStudy)
+                </th>*@
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.TelephoneNumber)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Height)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfInclusionInTheStudy)
+                    </td>*@
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-sm btn-success", @style= "background-color: gray; border-color:gray" }) |*@
+                    @Html.ActionLink("See Details", "Details", new { id = item.Id }, new { @class = " btn btn-sm btn-success btn-block", @style = "background-color: gray; border-color:gray" })
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-sm btn-success", @style = "background-color: gray; border-color:gray" })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts{
+    
+    <script>
+        $(document).ready(function () {
+            $("#tablePatients").DataTable();
+        });
+    </script>
+}

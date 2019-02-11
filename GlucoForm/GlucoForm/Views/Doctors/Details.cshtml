@@ -1,0 +1,91 @@
+﻿@model GlucoForm.Models.Doctor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div>
+    <a href="@Url.Action("Index", "Doctors")" class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        Back to Doctors List
+    </a>
+</div>
+
+
+<br />
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4 style="color: floralwhite;">Doctor details</h4></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Surname)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Surname)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DateOfBirth)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DateOfBirth)
+                    </dd>
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TelephoneNumber)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TelephoneNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.WorkPlace)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.WorkPlace)
+                    </dd>
+
+                </dl>
+                @Html.ActionLink("Edit doctor details", "Edit", new { id = Model.Id }, new { @class = "btn btn-default col-md-4 col-md-offset-8" })
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <style type="text/css">
+        dl > dd {
+            margin: 6px;
+            margin-left: 60px;
+            padding: 6px;
+            border: 1px dotted;
+            border-color: gray;
+        }
+    </style>
+}

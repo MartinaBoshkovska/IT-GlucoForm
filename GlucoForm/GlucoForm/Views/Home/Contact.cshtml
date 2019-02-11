@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<br />
+<h2 class="text-center text-primary" style="color:gray; text-decoration:underline">- GlucoForm survey -</h2>
+<div class="text-justify col-md-offset-1 col-md-10" style="font-family: Georgia, sans-serif !important; font-size:16px;">
+    <br />
+    GlucoForm is a web platform that will be used for collecting information for a novel medical research.<br />
+    <br />
+    <div style="font-size:16px; color:#eb6864"><b><i>The members of the team behind this survey are:</i></b></div>
+    <br />
+    <div class="row">
+        <ul class="list-group col-md-4 col-md-offset-1">
+            <li class="list-group-item">Martina Boshkovska</li>
+            <li class="list-group-item">Janaki Bajatovski</li>
+        </ul>
+
+    </div>
+    <hr style="border-top-color:#eb6864" />
+
+    <h3 class="text-primary">Project description</h3>
+    The aim of this project is to create a platform that enables doctors and individual users to contribute to the creation
+    of a dataset that has the glucose level of patients and their ECG recordings at the same time, for various times of the day.
+    The purpose of this dataset is to be used to find correlations between ECG recordings and high glucose levels in blood and
+    be an open contribution for the research community in the future.
+    <br /><br />
+    The idea behind the project originated from multiple mentions of this correlation through research papers from the
+    area of AI and Deep Learning.
+
+    <br />
+
+    <br />
+    <div style="font-size:16px;"><b><i>Some of the features of the platform are:</i></b></div>
+    <br/>
+
+    <div class="row">
+        <div class="list-group col-md-offset-1">
+            <a href="#/" class="list-group-item ">
+                <h5 class="list-group-item-heading">Register users</h5>
+                <p class="list-group-item-text">
+                    New users can be registered on the platform and contribute to the
+                    survey at their own will. There are some required information that the user needs to provide and
+                    each user has to have a unique email account. There cannot be two users with the same email account
+                </p>
+            </a>
+            <a href="#/" class="list-group-item ">
+                <h5 class="list-group-item-heading">Roles and role management</h5>
+                <p class="list-group-item-text">
+                    The admin can manage roles. Available roles on the platform are:
+                    Doctor, Patient and Admin. After registration the user is automatically transfered to the role of patient.
+                    Afterwards, the admin can asign the user with the role doctor or admin.
+                </p>
+            </a>
+            <a href="#/" class="list-group-item ">
+                <h5 class="list-group-item-heading">Adding new patients</h5>
+                <p class="list-group-item-text">
+                    The user in role doctor or admin can create new patients at his own will. The newly added users can
+                    afterwards access their account by using the email address and password provided to them by the 
+                    admin or doctor.
+                </p>
+            </a>
+            <a href="#/" class="list-group-item ">
+                <h5 class="list-group-item-heading">Adding reports</h5>
+                <p class="list-group-item-text">Each user can add reports to his own accord. The reports contain
+                information on the time of day the measurements are for, the state of weather the user had eaten or not, 
+                measurements about the level of glucose in his blood at the given time. The user must also provide an ECG recording taken
+                at the same time</p>
+            </a>
+        </div>
+    </div>
+    <hr />
+</div>
+
+
+<div class="row">
+    <div class="col-md-5 col-md-offset-1">
+        <div class="card" style=" width: 40rem; border: 1px solid gray;">
+            <img class="card-img-top" src="~/Content/Images/mapimg.png" style="max-width:40rem; max-height:40rem;" alt="Card image cap">
+            <div class="card-body" style="padding-left:2rem;">
+                <h3 class="card-title">Our location</h3>
+                <p class="card-text">
+                    <address>
+                        One Microsoft Way<br />
+                        Redmond, WA 98052-6399<br />
+                        <abbr title="Phone">P:</abbr>
+                        425.555.0100
+                    </address>
+                </p>
+                @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5 col-md-offset-1">
+        <div class="card " style="width: 40rem; border: 1px solid gray">
+            <img class="card-img-top" src="~/Content/Images/mapimg.png" style="max-width:40rem; max-height:40rem;" alt="Card image cap">
+            <div class="card-body" style="padding-left:2rem;">
+                <h3 class="card-title">Contact us </h3>
+                <p class="card-text">
+                    <address>
+                        <strong>Telephone:</strong> +389 75 827 273 <br />
+                        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+                        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+                    </address>
+                </p>
+                @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+            </div>
+        </div>
+    </div>
+</div>
+

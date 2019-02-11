@@ -1,0 +1,33 @@
+﻿@model GlucoForm.Models.ReportsFileViewModel
+@{
+    ViewBag.Title = "UploadFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Please attach the ECG record to finalize the report</h2>
+<br />
+<hr />
+@using (Html.BeginForm("UploadFile", "Reports", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="row">
+    @Html.HiddenFor(m => m.report.Comment)
+    @Html.HiddenFor(m => m.report.ECGfile)
+    @Html.HiddenFor(m => m.report.MeasurementTime)
+    @Html.HiddenFor(m => m.report.MeasurementValue)
+    @Html.HiddenFor(m => m.report.Patient)
+    @Html.HiddenFor(m => m.report.PatientId)
+    @Html.HiddenFor(m => m.report.Period)
+    @Html.HiddenFor(m => m.report.ReportDate)
+    @Html.HiddenFor(m => m.report.ReportId)
+    <div>
+
+        @Html.TextBoxFor(m => m.file, new { type = "file" })
+
+        <br />
+
+        <input type="submit" value="Upload ECG" />
+
+    </div>
+</div>
+
+}  

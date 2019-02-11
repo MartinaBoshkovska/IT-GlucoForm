@@ -1,0 +1,288 @@
+﻿@model GlucoForm.Models.PatientViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <br />
+    @if (!User.IsInRole("Patient"))
+    {
+        <a href="@Url.Action("Index", "Patients")" class="btn btn-primary">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            Back to Patients List
+        </a>
+    }
+    <br />
+    @*@Html.ActionLink("Back to Patient List", "Index", null, new { @class = "btn btn-primary" })*@
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h4 style="color: floralwhite;">Patient details</h4></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.Name)
+
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.Name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.Surname)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.Surname)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.DateOfBirth)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.DateOfBirth)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.Email)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.Email)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.TelephoneNumber)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.TelephoneNumber)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.DateOfInclusionInTheStudy)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.DateOfInclusionInTheStudy)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.Gender)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.Gender)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.Weight)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.Weight)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.patient.Height)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.patient.Height)
+                        </dd>
+
+                    </dl>
+                    <p>
+                        <br />
+                        @Html.ActionLink("Edit patient information", "Edit", "Patients", new { id = Model.patient.Id }, new { @class = "btn btn-default", @style = "margin-left:60px;" })
+                    </p>
+                </div>
+            </div>
+            
+                    @*<table class="table">
+                    <thead style="border-bottom:none"></thead>
+                    <tbody>
+                        <tr>
+                            <td >
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.Name)
+                                </b>
+                            </td>
+                            <td >
+                                @Html.DisplayFor(model => model.patient.Name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.Surname)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.Surname)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.DateOfBirth)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.DateOfBirth)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.Gender)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.Gender)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.Email)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.Email)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.TelephoneNumber)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.TelephoneNumber)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.DateOfInclusionInTheStudy)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.DateOfInclusionInTheStudy)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.Weight)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.Weight)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.Height)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.Height)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>
+                                    @Html.DisplayNameFor(model => model.patient.profession)
+                                </b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.patient.profession)
+                            </td>
+                        </tr>
+                        <tr>
+
+                        </tr>
+                        <tr>
+                            <td>@Html.ActionLink("Edit patient information", "Edit", "Patients", new { id = Model.patient.Id }, new { @class = "btn btn-primary", @style="font:" })</td>
+                        </tr>
+                    </tbody>
+
+                </table>*@
+
+        </div>
+    </div>
+
+    <div>
+        <p class="text-right">
+            <br />
+            @Html.ActionLink("Add New Report", "Create", "Reports", new { patientId = Model.patient.Id }, new { @class = "btn btn-success" })
+        </p>
+        <h3>Patient reports</h3>
+        <table id="reportTable" class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>Report ID</th>
+                    <th>Report Date</th>
+                    <th>Report Time</th>
+                    <th>Report Period</th>
+                    <th>Measured Value</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model.MyReports)
+                {
+                    <tr>
+                        <td>
+
+                            @r.ReportId
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modalItem=> r.ReportDate)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modalItem => r.MeasurementTime)
+                        </td>
+                        <td>
+                            @r.Period
+                        </td>
+                        <td>
+                            @r.MeasurementValue
+                        </td>
+                        <td>
+                            @Html.ActionLink("View details", "Details", "Reports",new { id = r.ReportId}, new { @class = "btn btn-default" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+</div>
+<br />
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.patient.Id }) |*@
+
+</p>
+
+@section Scripts{ 
+
+    <style type="text/css">
+
+        #reportTable > tbody > tr > td{
+            vertical-align:inherit;
+        }
+
+        dl > dd {
+            margin: 6px;
+            margin-left: 60px;
+            padding: 6px;
+            border: 1px dotted;
+            border-color: gray;
+        }
+
+    </style>
+    
+}

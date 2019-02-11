@@ -1,0 +1,77 @@
+﻿@model IEnumerable<GlucoForm.Models.Report>
+
+@{
+    ViewBag.Title = "MyReports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MyReports</h2>
+
+<p style="text-align:right">
+    @Html.ActionLink("Add new report", "Create", new { patientId = ViewBag.patId },new { @class= "btn btn-success"})
+</p>
+<table class="table" id="tableMyReports">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MeasurementTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Period)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MeasurementValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReportDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeasurementTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Period)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeasurementValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReportId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ReportId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReportId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $("#tableMyReports").DataTable();
+        });
+    </script>
+}

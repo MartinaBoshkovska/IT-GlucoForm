@@ -1,0 +1,117 @@
+﻿@model GlucoForm.Models.Report
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Report details</h2>*@
+
+@if (User.IsInRole("Patient"))
+{
+    <a href="@Url.Action("Details", "Patients", new { id = Model.PatientId })" class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        Back to the list of my records
+    </a>
+}
+<div>
+    <hr />
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h4 style="color: floralwhite;">Report details</h4></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Patient.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Patient.Email)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ReportDate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ReportDate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MeasurementTime)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MeasurementTime)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Period)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Period)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MeasurementValue)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MeasurementValue)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Comment)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Comment)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ECGfile)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ECGfile)
+                        </dd>
+                    </dl>
+                    @Html.ActionLink("Edit report information", "Edit", "Reports", new { id = Model.ReportId }, new { @class = "btn btn-default", @style = "margin-left:60px;" })
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @*<p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ReportId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>*@
+</div>
+<a href="@Url.Action("Details", "Patients", new { id = Model.PatientId })" class="btn btn-primary">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    Back to dosier
+</a>
+
+@section Scripts{
+
+    <style type="text/css">
+
+        #reportTable > tbody > tr > td {
+            vertical-align: inherit;
+        }
+
+        dl > dd {
+            margin: 6px;
+            margin-left: 60px;
+            padding: 6px;
+            border: 1px solid;
+            border-color: gray;
+        }
+    </style>
+
+}

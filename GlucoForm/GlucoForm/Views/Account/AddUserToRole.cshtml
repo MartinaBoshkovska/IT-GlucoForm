@@ -1,0 +1,30 @@
+﻿@model GlucoForm.Models.AddToRoleModel
+@{
+    ViewBag.Title = "AddUserToRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4">
+            <h2>Add User To Role</h2>
+            @using (Html.BeginForm("AddUserToRole", "Account"))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SelectedEmail, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.SelectedEmail, new SelectList(Model.Emails), new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SelectedRole, new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.SelectedRole, new SelectList(Model.roles), new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn">Add user to the selected role</button>
+            }
+        </div>
+    </div>
+</div>
+
+
